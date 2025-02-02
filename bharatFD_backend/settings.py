@@ -25,9 +25,7 @@ SECRET_KEY = 'django-insecure-^%#^1278vvh2wuhe_h3*#-13(h)hl0mc$-@k14q24%ra76cz7&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['bharatfdbackend.onrender.com']
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
