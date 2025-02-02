@@ -15,12 +15,25 @@ def faq_list(request):
     # Translate the FAQs based on the selected language
     translated_faqs = []
     for faq in faqs:
+        # Ensure question and answer are not None
+        question = faq.question if faq.question else "No question available"
+        answer = faq.answer if faq.answer else "No answer available"
+
         if lang != 'en':  # If the selected language is not English
-            translated_question = translator.translate(faq.question, src='en', dest=lang).text
-            translated_answer = translator.translate(faq.answer, src='en', dest=lang).text
+            try:
+                translated_question = translator.translate(question, src='en', dest=lang)
+                translated_answer = translator.translate(answer, src='en', dest=lang)
+
+                # Ensure translated result is a string
+                translated_question = translated_question.text if translated_question and isinstance(translated_question.text, str) else question
+                translated_answer = translated_answer.text if translated_answer and isinstance(translated_answer.text, str) else answer
+            except Exception as e:
+                print(f"Translation error: {e}")  # Log error in server logs
+                translated_question = question  # Fallback to original text
+                translated_answer = answer
         else:
-            translated_question = faq.question
-            translated_answer = faq.answer
+            translated_question = question
+            translated_answer = answer
 
         translated_faqs.append({
             'question': translated_question,
@@ -30,8 +43,9 @@ def faq_list(request):
     return render(request, 'faq_list.html', {
         'faqs': translated_faqs,
         'current_language': lang,
-        'languages': LANGUAGES,  # Pass all Google Translate supported languages
+        'languages': LANGUAGES,
     })
+
 def add_faq(request):
     """Add a new FAQ"""
     if request.method == 'POST':
