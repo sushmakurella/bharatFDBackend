@@ -52,21 +52,15 @@
 ## Below are the screenshots of the working application:
 
 1️⃣ Home Page (FAQ List)
-
 ![Screenshot 2025-02-02 205624](https://github.com/user-attachments/assets/472a450e-49d4-4f9a-8df8-bce259a45a2b)
-
 Displays all FAQs.
-
 ![Screenshot 2025-02-02 205823](https://github.com/user-attachments/assets/ac7ea2d6-f739-42bd-b20f-6b76a66a2434)
 
 ![Screenshot 2025-02-02 210442](https://github.com/user-attachments/assets/1c00fd28-497c-4f9a-88d4-b1733ea3df8b)
-
 Supports language selection via a dropdown.
 
 2️⃣ Add FAQ Page
-
 ![Screenshot 2025-02-02 210718](https://github.com/user-attachments/assets/e92087da-0b10-4884-a962-b43d985ffb2c)
-
 Allows adding new FAQs using a form with a WYSIWYG editor.
 
 
